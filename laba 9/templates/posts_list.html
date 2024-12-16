@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts</title>
+</head>
+<body>
+    <h1>Posts</h1>
+    <a href="/posts/new">Create new post</a>
+    <ul>
+        {% for post in posts %}
+        <li>
+            {{ post.title }} - {{ post.content }}
+            <a href="/posts/{{ post.id }}/edit">Edit</a>
+            <form action="/posts/{{ post.id }}/delete" method="post" style="display:inline;">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
